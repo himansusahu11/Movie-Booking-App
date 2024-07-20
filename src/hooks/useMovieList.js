@@ -74,6 +74,7 @@
 //     isLoggedIn,
 //   };
 // }
+///////////////////////////////////////////////////////
 
 import { useContext, useEffect, useState } from "react";
 import { getAllMovies } from "../api/Movie";
@@ -90,10 +91,6 @@ export default function useMovieList() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const { theme } = useContext(ThemeContext);
 
-  /**
-   * useEffectIsTriggered: ComponentDidMount + ComponentDidUpdate
-   * if we pass an empty array:-= No dependency :-=- it will work on ComponentDidMount
-   */
   useEffect(() => {
     const fetchMoviesData = async () => {
       try {
@@ -108,7 +105,7 @@ export default function useMovieList() {
     };
 
     fetchMoviesData();
-  }, [toggleIsLoading]);
+  }, []); // Empty dependency array ensures this runs only once
 
   const onLanguageChange = (languageSelected) => {
     if (languageSelected === "all") {

@@ -11,13 +11,14 @@ function Movie(props) {
     movieDetails;
 
   function deletedMovie() {
+    console.log(`movie deleted ${_id}`);
     onDelete(_id);
   }
 
   return (
     <div className="movie-item">
-      <Link to={`/movie/${_id}`}>
-        <Card style={{ width: "18rem" }}>
+      <Card style={{ width: "18rem" }}>
+        <Link to={`/movie/${_id}`}>
           <Card.Img variant="top" src={posterUrl} />
           <Card.Body>
             <Card.Title>{name}</Card.Title>
@@ -28,21 +29,20 @@ function Movie(props) {
             <ListGroup.Item>Director {director}</ListGroup.Item>
             <ListGroup.Item>Release Date {releaseDate}</ListGroup.Item>
           </ListGroup>
-
-          <Card.Body>
-            {isLoggedIn && (
-              <Button className="m-1" onClick={deletedMovie} variant="danger">
-                Delete Movie
-              </Button>
-            )}
-            {isLoggedIn && (
-              <Button className="m-1" onClick={deletedMovie} variant="danger">
-                Add To Cart
-              </Button>
-            )}
-          </Card.Body>
-        </Card>
-      </Link>
+        </Link>
+        <Card.Body>
+          {isLoggedIn && (
+            <Button className="m-1" onClick={deletedMovie} variant="danger">
+              Delete Movie
+            </Button>
+          )}
+          {isLoggedIn && (
+            <Button className="m-1" onClick={deletedMovie} variant="danger">
+              Add To Cart
+            </Button>
+          )}
+        </Card.Body>
+      </Card>
     </div>
   );
 }
