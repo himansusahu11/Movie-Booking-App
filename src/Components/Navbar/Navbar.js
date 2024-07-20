@@ -33,7 +33,9 @@ function NavbarComponent(props) {
     <>
       <Navbar className="mb-3" bg="primary" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand href="#home">Movie Bookings Appliction</Navbar.Brand>
+          <Navbar.Brand href="#home">
+            <Nav.Link href="/">Movie Bookings Appliction</Nav.Link>
+          </Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link href="#features">Features</Nav.Link>
